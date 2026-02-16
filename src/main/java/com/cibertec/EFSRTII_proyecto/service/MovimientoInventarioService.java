@@ -48,6 +48,13 @@ public class MovimientoInventarioService {
 
         return movimientoRepository.save(movimiento);
     }
+    public List<MovimientoInventario> listarSalidas() {
+        return movimientoRepository.findByTipo("SALIDA");
+    }
+
+    public List<MovimientoInventario> listarEntradas() {
+        return movimientoRepository.findByTipo("ENTRADA");
+    }
 
     public void eliminar(Long id) {
         movimientoRepository.deleteById(id);
