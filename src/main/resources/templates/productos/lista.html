@@ -88,8 +88,7 @@
 						                     <div class="d-flex gap-2">
 						                         <button class="btn btn-outline-secondary btn-sm" type="button">Filtrar por <i class="bi bi-caret-down-fill"></i></button>
 						                         <div class="input-group input-group-sm" style="width: 300px;">
-						                             <input type="text" class="form-control" placeholder="Buscar...">
-						                             <button class="btn btn-outline-secondary" type="button"><i class="bi bi-search"></i></button>
+						                           </button>
 						                         </div>
 						                     </div>
 						                     <a th:href="@{/productos/nuevo}" class="btn btn-primary btn-sm">Crear producto</a>
@@ -101,6 +100,7 @@
 						                         <tr>
 						                             <th>ID</th>
 						                             <th>Nombre</th>
+													 <th>Categoría</th>
 						                             <th>Modelo</th>
 						                             <th>Precio</th>
 						                             <th>Stock</th>
@@ -111,6 +111,7 @@
 						                         <tr th:each="p : ${lista}">
 						                             <td th:text="${p.id}"></td>
 						                             <td th:text="${p.nombre}"></td>
+													 <td th:text="${p.categoria != null ? p.categoria.nombre : 'Sin categoría'}"></td>
 						                             <td th:text="|MDL-${p.id}|"></td>
 						                             <td th:text="|S/ ${#numbers.formatDecimal(p.precio,1,2)}|"></td>
 						                             <td th:classappend="${p.stock < 10} ? 'stock-low' : ''" th:text="${p.stock}"></td>
